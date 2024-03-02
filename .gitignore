@@ -9,3 +9,4 @@ fabric/run/
 neoforge/run/
 
 .gradle
+.idea
