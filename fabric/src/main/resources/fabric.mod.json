@@ -12,6 +12,9 @@
   "entrypoints": {
     "main": [
       "com.st0x0ef.stellaris.fabric.StellarisFabric"
+    ],
+    "fabric-datagen": [
+      "com.st0x0ef.stellaris.fabric.datagen.ModDataGenerator"
     ]
   },
   "mixins": [

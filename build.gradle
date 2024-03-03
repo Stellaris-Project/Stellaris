@@ -20,9 +20,6 @@ subprojects {
            }
     }
 
-    def generatedResources = file("src/generated")
-
-
     dependencies {
         minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
         // The following line declares the mojmap mappings, you may use other mappings as well

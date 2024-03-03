@@ -7,24 +7,6 @@ architectury {
     neoForge()
 }
 
-def generatedResources = file("src/generated")
-
-sourceSets {
-    main {
-        resources.srcDir generatedResources
-    }
-}
-
-
-loom {
-    runs {
-        data {
-            data()
-            programArgs "--all", "--mod", "stellaris"
-            programArgs "--output", generatedResources.absolutePath
-        }
-    }
-}
 
 configurations {
     common
