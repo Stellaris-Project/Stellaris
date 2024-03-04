@@ -10,3 +10,5 @@ neoforge/run/
 
 .gradle
 .idea
+
+fabric/src/generated/.cache/
