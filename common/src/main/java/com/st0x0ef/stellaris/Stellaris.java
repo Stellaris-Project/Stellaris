@@ -1,5 +1,6 @@
 package com.st0x0ef.stellaris;
 
+import com.st0x0ef.stellaris.common.registry.BlocksRegistry;
 import com.st0x0ef.stellaris.common.registry.ItemsRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ public class Stellaris {
     public static void init() {
         LOG.info("Initializing Stellaris");
 
+        BlocksRegistry.BLOCKS.register();
         ItemsRegistry.ITEMS.register();
+
     }
 }
