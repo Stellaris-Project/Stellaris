@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "stellaris:block/steel_block_down",
+    "east": "stellaris:block/steel_block_east",
+    "north": "stellaris:block/steel_block_north",
+    "particle": "stellaris:block/steel_block_particle",
+    "south": "stellaris:block/steel_block_south",
+    "up": "stellaris:block/steel_block_up",
+    "west": "stellaris:block/steel_block_west"
+  }
+}
