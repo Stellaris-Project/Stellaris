@@ -1,5 +1,6 @@
 package com.st0x0ef.stellaris.fabric.datagen;
 
+import com.st0x0ef.stellaris.fabric.datagen.providers.ModLootTableGenerator;
 import com.st0x0ef.stellaris.fabric.datagen.providers.ModModelGenerator;
 import com.st0x0ef.stellaris.fabric.datagen.providers.ModTagsGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -14,6 +15,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(ModModelGenerator::new);
         pack.addProvider(ModTagsGenerator.BlockTagsGenerator::new);
+        pack.addProvider(ModLootTableGenerator::new);
     }
 
 
