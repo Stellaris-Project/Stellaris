@@ -25,6 +25,8 @@ public class ModModelGenerator extends FabricModelProvider {
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
         createAllBlock(blockStateModelGenerator, BlocksRegistry.STEEL_BLOCK.get());
         createAllBlock(blockStateModelGenerator, BlocksRegistry.RAW_STEEL_BLOCK.get());
+        createAllBlock(blockStateModelGenerator, BlocksRegistry.STEEL_ORE.get());
+        createAllBlock(blockStateModelGenerator, BlocksRegistry.DEEPSLATE_STEEL_ORE.get());
 
     }
 

@@ -31,9 +31,9 @@ public class ModTagsGenerator  {
         @Override
         protected void addTags(HolderLookup.Provider tag) {
             getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
-                    .add(BlocksRegistry.RAW_STEEL_BLOCK.get(), BlocksRegistry.STEEL_BLOCK.get());
+                    .add(BlocksRegistry.RAW_STEEL_BLOCK.get(), BlocksRegistry.STEEL_BLOCK.get(), BlocksRegistry.STEEL_ORE.get(), BlocksRegistry.DEEPSLATE_STEEL_ORE.get());
             getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
-                    .add(BlocksRegistry.RAW_STEEL_BLOCK.get(), BlocksRegistry.STEEL_BLOCK.get());
+                    .add(BlocksRegistry.RAW_STEEL_BLOCK.get(), BlocksRegistry.STEEL_BLOCK.get(), BlocksRegistry.STEEL_ORE.get(), BlocksRegistry.DEEPSLATE_STEEL_ORE.get());
 
         }
     }
