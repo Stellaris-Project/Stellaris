@@ -23,7 +23,7 @@ public class ModModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createGenericCube(BlocksRegistry.STEEL_BLOCK.get());
+        createAllBlock(blockStateModelGenerator, BlocksRegistry.STEEL_BLOCK.get());
         createAllBlock(blockStateModelGenerator, BlocksRegistry.RAW_STEEL_BLOCK.get());
 
     }
