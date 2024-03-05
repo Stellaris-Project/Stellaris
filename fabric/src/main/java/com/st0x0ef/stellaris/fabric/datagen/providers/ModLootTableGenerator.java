@@ -12,7 +12,6 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        Stellaris.LOG.error("CACA");
         dropSelf(BlocksRegistry.RAW_STEEL_BLOCK.get());
         dropSelf(BlocksRegistry.STEEL_BLOCK.get());
         dropSelf(BlocksRegistry.STEEL_ORE.get());

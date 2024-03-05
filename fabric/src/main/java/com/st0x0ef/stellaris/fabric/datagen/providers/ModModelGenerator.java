@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.ModelLocationUtils;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.data.models.model.TextureSlot;
@@ -35,6 +34,13 @@ public class ModModelGenerator extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(ItemsRegistry.STEEL_NUGGET.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ItemsRegistry.RAW_STEEL_INGOT.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(ItemsRegistry.STEEL_INGOT.get(), ModelTemplates.FLAT_ITEM);
+
+        /** Rocket Parts */
+        itemModelGenerator.generateFlatItem(ItemsRegistry.ROCKET_NOSE_CONE.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ItemsRegistry.ROCKET_ENGINE.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ItemsRegistry.ROCKET_FIN.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ItemsRegistry.ROCKET_FAN.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(ItemsRegistry.FUEL_ROCKET_MOTOR.get(), ModelTemplates.FLAT_ITEM);
 
     }
 
