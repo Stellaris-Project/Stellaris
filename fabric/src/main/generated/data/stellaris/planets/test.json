@@ -1,0 +1,8 @@
+{
+  "level": "minecraft:the_nether",
+  "orbit": "minecraft:the_end",
+  "oxygen": 4,
+  "temperature": 15,
+  "distanceFromEarth": 0,
+  "gravity": 10
+}

@@ -27,6 +27,7 @@ public class ModLangGenerator extends FabricLanguageProvider {
         translationBuilder.add(ItemsRegistry.STEEL_BLOCK_ITEM.get(), "Steel Block");
         translationBuilder.add(ItemsRegistry.STEEL_ORE_ITEM.get(), "Steel Ore");
         translationBuilder.add(ItemsRegistry.DEEPSLATE_STEEL_ORE_ITEM.get(), "Deepslate Steel Ore");
+        translationBuilder.add("categorie.stellaris.main", "Stellaris");
 
     }
 }
