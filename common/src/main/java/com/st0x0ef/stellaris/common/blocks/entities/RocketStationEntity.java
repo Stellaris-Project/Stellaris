@@ -4,21 +4,24 @@ import com.st0x0ef.stellaris.Stellaris;
 import com.st0x0ef.stellaris.common.menus.RocketStationMenu;
 import com.st0x0ef.stellaris.common.registry.BlockEntityTypesRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
 
-public class RocketStationEntity extends BaseContainerBlockEntity {
+public class RocketStationEntity extends BaseContainerBlockEntity implements WorldlyContainer {
 
     private NonNullList<ItemStack> items;
 
@@ -105,4 +108,19 @@ public class RocketStationEntity extends BaseContainerBlockEntity {
         ContainerHelper.saveAllItems(compoundTag, this.items);
     }
 
+
+    @Override
+    public int[] getSlotsForFace(Direction direction) {
+        return new int[0];
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int i, ItemStack itemStack, @Nullable Direction direction) {
+        return false;
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int i, ItemStack itemStack, Direction direction) {
+        return false;
+    }
 }

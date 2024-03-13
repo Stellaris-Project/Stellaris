@@ -16,12 +16,13 @@ public class EntityTick {
         Entity entity = (Entity) ((Object) this);
 
         /** Very Very Very Basic Gravity
-         * It's here to test the planets registration with data packs */
+         * It's here to test the planets registration with data packs
+         * The Real gravity system will be made in 1.20.5
+         */
         if(StellarisData.isPlanet(entity.level().dimension())) {
             entity.setNoGravity(StellarisData.getPlanet(entity.level().dimension()).oxygen());
         } else {
             entity.setNoGravity(false);
-
         }
     }
 

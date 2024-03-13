@@ -24,10 +24,14 @@ public class Stellaris {
         MenuTypesRegistry.MENU_TYPE.register();
         BlockEntityTypesRegistry.BLOCK_ENTITY_TYPE.register();
 
-        ReloadListenerRegistry.register(PackType.SERVER_DATA, new StellarisData());
 
+        ReloadListenerRegistry.register(PackType.SERVER_DATA, new StellarisData());
         ClientLifecycleEvent.CLIENT_SETUP.register(client -> {
             MenuRegistry.registerScreenFactory(MenuTypesRegistry.ROCKET_STATION.get(), RocketStationScreen::new);
         });
+    }
+
+    public static void clientInit() {
+
     }
 }

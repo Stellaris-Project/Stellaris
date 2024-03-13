@@ -28,7 +28,6 @@ public class RocketStationMenu extends AbstractContainerMenu {
         addPlayerHotbar(inventory);
         addPlayerInventory(inventory);
 
-
     }
 
     @Override
@@ -58,12 +57,12 @@ public class RocketStationMenu extends AbstractContainerMenu {
 
     public void addPlayerInventory(Inventory playerInventory) {
         int j;
-        int k;
         for(j = 0; j < 3; ++j) {
-            for(k = 0; k < 9; ++k) {
+            for(int k = 0; k < 9; ++k) {
                 this.addSlot(new Slot(playerInventory, k + j * 9 + 9, 8 + k * 18, (84 + j * 18) + 58));
             }
         }
+
     }
 
 }
