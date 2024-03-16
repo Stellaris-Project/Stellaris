@@ -29,13 +29,13 @@ public class RocketStationEntity extends BaseContainerBlockEntity implements Wor
     public RocketStationEntity(BlockPos blockPos, BlockState blockState) {
         super(BlockEntityTypesRegistry.ROCKET_STATION.get(), blockPos, blockState);
 
-        this.items = NonNullList.withSize(3, ItemStack.EMPTY);
+        this.items = NonNullList.withSize(15, ItemStack.EMPTY);
 
     }
 
     @Override
     protected Component getDefaultName() {
-        return Component.literal("Test");
+        return Component.literal("Rocket Station");
     }
 
     @Override

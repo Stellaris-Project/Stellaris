@@ -17,7 +17,7 @@ public class RocketStationMenu extends AbstractContainerMenu {
 
     private final Container inventory;
     public RocketStationMenu(int syncId, Inventory inventory) {
-        this(syncId, inventory, new SimpleContainer(3));
+        this(syncId, inventory, new SimpleContainer(15));
     }
 
     public RocketStationMenu(int syncId, Inventory playerInventory, Container container)
@@ -26,7 +26,7 @@ public class RocketStationMenu extends AbstractContainerMenu {
         super(MenuTypesRegistry.ROCKET_STATION.get(), syncId);
 
 
-        checkContainerSize(container, 3);
+        checkContainerSize(container, 15);
         this.inventory = (container);
 
         addSlots(inventory);
@@ -68,9 +68,26 @@ public class RocketStationMenu extends AbstractContainerMenu {
 
 
     private void addSlots(Container inventory) {
-        this.addSlot(new Slot(inventory, 0, 56, 51));
-        this.addSlot(new Slot(inventory, 1, 79, 58));
-        this.addSlot(new Slot(inventory, 2, 102, 51));
+        this.addSlot(new Slot(inventory, 0, 56, 20));
+
+        this.addSlot(new Slot(inventory, 1, 47, 38));
+        this.addSlot(new Slot(inventory, 3, 47, 56));
+        this.addSlot(new Slot(inventory, 5, 47, 75));
+
+        this.addSlot(new Slot(inventory, 2, 65, 38));
+        this.addSlot(new Slot(inventory, 4, 65, 56));
+        this.addSlot(new Slot(inventory, 6, 65, 75));
+
+        this.addSlot(new Slot(inventory, 7, 29, 92));
+        this.addSlot(new Slot(inventory, 8, 47, 92));
+        this.addSlot(new Slot(inventory, 9, 65, 92));
+        this.addSlot(new Slot(inventory, 10, 83, 92));
+
+        this.addSlot(new Slot(inventory, 11, 29, 110));
+        this.addSlot(new Slot(inventory, 12, 56, 110));
+        this.addSlot(new Slot(inventory, 13, 83, 110));
+
+        this.addSlot(new ResultSlot(inventory, 14, 129, 56));
 
     }
 
