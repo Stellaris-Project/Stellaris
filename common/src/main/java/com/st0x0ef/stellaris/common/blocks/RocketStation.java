@@ -2,16 +2,21 @@ package com.st0x0ef.stellaris.common.blocks;
 
 import com.mojang.serialization.MapCodec;
 import com.st0x0ef.stellaris.Stellaris;
+import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
 import com.st0x0ef.stellaris.common.blocks.entities.RocketStationEntity;
 import com.st0x0ef.stellaris.common.menus.RocketStationMenu;
+import dev.architectury.registry.menu.MenuRegistry;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.BrewingStandMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.level.Level;
@@ -39,16 +44,16 @@ public class RocketStation extends BaseEntityBlock {
 
     @Override
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        if (level.isClientSide) {
-            return InteractionResult.SUCCESS;
-        } else {
+        if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
             if (blockEntity instanceof RocketStationEntity) {
                 Stellaris.LOG.error("Opening RocketStationMenu");
-                player.openMenu((MenuProvider)blockEntity);
+                //player.openMenu((MenuProvider)blockEntity);
+                player.openMenu(blockState.getMenuProvider(level, blockPos));
+
             }
-            return InteractionResult.CONSUME;
         }
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable

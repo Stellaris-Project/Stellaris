@@ -57,15 +57,15 @@ public class RocketStationEntity extends BaseContainerBlockEntity implements Wor
                 return true;
             }
 
-            itemStack = (ItemStack)var1.next();
-        } while(itemStack.isEmpty());
+            itemStack = (ItemStack) var1.next();
+        } while (itemStack.isEmpty());
 
         return false;
     }
 
     @Override
     public ItemStack getItem(int i) {
-        return i >= 0 && i < this.items.size() ? (ItemStack)this.items.get(i) : ItemStack.EMPTY;
+        return i >= 0 && i < this.items.size() ? (ItemStack) this.items.get(i) : ItemStack.EMPTY;
     }
 
     @Override
@@ -102,6 +102,7 @@ public class RocketStationEntity extends BaseContainerBlockEntity implements Wor
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(compoundTag, this.items);
     }
+
     @Override
     protected void saveAdditional(CompoundTag compoundTag) {
         super.saveAdditional(compoundTag);
