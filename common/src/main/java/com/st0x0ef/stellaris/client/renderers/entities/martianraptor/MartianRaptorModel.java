@@ -32,6 +32,7 @@ public class MartianRaptorModel<T extends MartianRaptor> extends EntityModel<T> 
         this.leg2 = root.getChild("leg2");
     }
 
+
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

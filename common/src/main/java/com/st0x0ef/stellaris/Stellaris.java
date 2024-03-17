@@ -1,12 +1,16 @@
 package com.st0x0ef.stellaris;
 
 import com.google.gson.Gson;
+import com.st0x0ef.stellaris.client.renderers.entities.martianraptor.MartianRaptorModel;
+import com.st0x0ef.stellaris.client.renderers.entities.martianraptor.MartianRaptorRenderer;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
 import com.st0x0ef.stellaris.common.data.planets.StellarisData;
 import com.st0x0ef.stellaris.common.entities.MartianRaptor;
 import com.st0x0ef.stellaris.common.registry.*;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
 import dev.architectury.registry.ReloadListenerRegistry;
+import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
+import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.minecraft.server.packs.PackType;
@@ -31,12 +35,18 @@ public class Stellaris {
         RecipesRegistry.register();
 
         ReloadListenerRegistry.register(PackType.SERVER_DATA, new StellarisData());
+
         ClientLifecycleEvent.CLIENT_SETUP.register(client -> {
             MenuRegistry.registerScreenFactory(MenuTypesRegistry.ROCKET_STATION.get(), RocketStationScreen::new);
+
+            EntityRendererRegistry.register(EntityRegistry.MARTIAN_RAPTOR, MartianRaptorRenderer::new);
+            EntityModelLayerRegistry.register(MartianRaptorModel.LAYER_LOCATION, MartianRaptorModel::createBodyLayer);
         });
     }
 
     public static void clientInit() {
+
+
 
     }
 }

@@ -28,7 +28,7 @@ public class EntityRegistry {
 
 
     public static void registerAttributes() {
-        EntityAttributeRegistry.register(EntityRegistry.MARTIAN_RAPTOR,  MartianRaptor::createMobAttributes);
+        EntityAttributeRegistry.register(EntityRegistry.MARTIAN_RAPTOR,  MartianRaptor::CreateRaptorAttributes);
 
     }
 }

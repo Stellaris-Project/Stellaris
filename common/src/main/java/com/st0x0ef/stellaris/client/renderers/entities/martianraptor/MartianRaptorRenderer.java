@@ -1,13 +1,11 @@
 package com.st0x0ef.stellaris.client.renderers.entities.martianraptor;
 
-
 import com.st0x0ef.stellaris.common.entities.MartianRaptor;
 import com.st0x0ef.stellaris.Stellaris;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
-
 
 public class MartianRaptorRenderer extends MobRenderer<MartianRaptor, EntityModel<MartianRaptor>> {
 
