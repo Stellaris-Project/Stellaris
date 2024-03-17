@@ -3,9 +3,11 @@ package com.st0x0ef.stellaris;
 import com.google.gson.Gson;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
 import com.st0x0ef.stellaris.common.data.planets.StellarisData;
+import com.st0x0ef.stellaris.common.entities.MartianRaptor;
 import com.st0x0ef.stellaris.common.registry.*;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
 import dev.architectury.registry.ReloadListenerRegistry;
+import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.minecraft.server.packs.PackType;
 import org.slf4j.Logger;
@@ -22,8 +24,11 @@ public class Stellaris {
         BlocksRegistry.BLOCKS.register();
         ItemsRegistry.ITEMS.register();
         MenuTypesRegistry.MENU_TYPE.register();
-        BlockEntityTypesRegistry.BLOCK_ENTITY_TYPE.register();
+        EntityRegistry.BLOCK_ENTITY_TYPE.register();
+        EntityRegistry.ENTITY_TYPE.register();
         RecipesRegistry.register();
+
+        EntityAttributeRegistry.register(EntityRegistry.MARTIAN_RAPTOR,  MartianRaptor.CreateMobAttributes());
 
         ReloadListenerRegistry.register(PackType.SERVER_DATA, new StellarisData());
         ClientLifecycleEvent.CLIENT_SETUP.register(client -> {
