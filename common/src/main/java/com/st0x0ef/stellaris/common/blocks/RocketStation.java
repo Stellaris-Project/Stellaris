@@ -2,24 +2,12 @@ package com.st0x0ef.stellaris.common.blocks;
 
 import com.mojang.serialization.MapCodec;
 import com.st0x0ef.stellaris.Stellaris;
-import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
 import com.st0x0ef.stellaris.common.blocks.entities.RocketStationEntity;
-import com.st0x0ef.stellaris.common.menus.RocketStationMenu;
-import com.st0x0ef.stellaris.common.registry.BlockEntityTypesRegistry;
-import dev.architectury.registry.menu.MenuRegistry;
-import net.minecraft.client.Minecraft;
+import com.st0x0ef.stellaris.common.registry.EntityRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.BrewingStandMenu;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
@@ -63,7 +51,7 @@ public class RocketStation extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return createTickerHelper(blockEntityType, BlockEntityTypesRegistry.ROCKET_STATION.get(),
+        return createTickerHelper(blockEntityType, EntityRegistry.ROCKET_STATION.get(),
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }
