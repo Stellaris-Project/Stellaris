@@ -1,0 +1,21 @@
+{
+  "stellaris:recipes/misc/raw_steel_block_to_raw_steel_ingot": {
+    "criteria": {
+      "has_raw_steel_block": "2024-03-17 12:50:11 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2024-03-17 12:49:59 +0100"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:beach": "2024-03-17 12:50:00 +0100"
+    },
+    "done": false
+  },
+  "DataVersion": 3700
+}
