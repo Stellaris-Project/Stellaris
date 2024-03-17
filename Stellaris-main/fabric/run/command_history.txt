@@ -1,2 +1,0 @@
-/time set day
-/summon minecraft:firework_rocket

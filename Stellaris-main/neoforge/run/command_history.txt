@@ -1,2 +1,0 @@
-/summon minecraft:ravagers
-/summon minecraft:ravager
