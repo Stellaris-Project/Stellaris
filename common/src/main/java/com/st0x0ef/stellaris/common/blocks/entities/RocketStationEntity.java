@@ -28,10 +28,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-public class RocketStationEntity extends BaseContainerBlockEntity implements WorldlyContainer {
+public class RocketStationEntity extends BaseContainerBlockEntity implements ImplementedInventory {
 
     private NonNullList<ItemStack> items;
-    private List<Integer> inputSlots = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
+    private List<Integer> inputSlots = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
 
 
     public RocketStationEntity(BlockPos blockPos, BlockState blockState) {
@@ -51,57 +51,10 @@ public class RocketStationEntity extends BaseContainerBlockEntity implements Wor
         return new RocketStationMenu(i, inventory, this);
     }
 
-    public int getContainerSize() {
-        return this.items.size();
-    }
-
     @Override
-    public boolean isEmpty() {
-        Iterator var1 = this.items.iterator();
-
-        ItemStack itemStack;
-        do {
-            if (!var1.hasNext()) {
-                return true;
-            }
-
-            itemStack = (ItemStack) var1.next();
-        } while (itemStack.isEmpty());
-
-        return false;
-    }
-
-    @Override
-    public ItemStack getItem(int i) {
-        return i >= 0 && i < this.items.size() ? (ItemStack) this.items.get(i) : ItemStack.EMPTY;
-    }
-
-    @Override
-    public ItemStack removeItem(int i, int j) {
-        return ContainerHelper.removeItem(this.items, i, j);
-    }
-
-    @Override
-    public ItemStack removeItemNoUpdate(int i) {
-        return ContainerHelper.takeItem(this.items, i);
-    }
-
-    @Override
-    public void setItem(int i, ItemStack itemStack) {
-        if (i >= 0 && i < this.items.size()) {
-            this.items.set(i, itemStack);
-        }
-
-    }
-
-    @Override
-    public boolean stillValid(Player player) {
-        return Container.stillValidBlockEntity(this, player);
-    }
-
-    @Override
-    public void clearContent() {
-        this.items.clear();
+    public void setChanged() {
+        level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+        super.setChanged();
     }
 
     @Override
@@ -117,6 +70,11 @@ public class RocketStationEntity extends BaseContainerBlockEntity implements Wor
         ContainerHelper.saveAllItems(compoundTag, this.items);
     }
 
+
+    @Override
+    public NonNullList<ItemStack> getItems() {
+        return items;
+    }
 
     @Override
     public int[] getSlotsForFace(Direction direction) {
@@ -155,14 +113,8 @@ public class RocketStationEntity extends BaseContainerBlockEntity implements Wor
         for (int i : inputSlots) {
             this.removeItem(i, 1);
         }
-
-        int count = recipe.get().value().getResultItem(null).getCount() + getItem(14).getCount();
-        Stellaris.LOG.error("Recipe Count: " + recipe.get().value().getResultItem(null).getCount());
-
-        Stellaris.LOG.error("Slot Count: " + getItem(14).getCount());
-
-        Stellaris.LOG.error("Count: " + count);
-        this.setItem(14, new ItemStack(recipe.get().value().getResultItem(null).getItem(), count));
+        this.setItem(14, new ItemStack(recipe.get().value().getResultItem(null).getItem(),
+                getItem(14).getCount() + recipe.get().value().getResultItem(null).getCount()));
     }
 
 
@@ -183,14 +135,14 @@ public class RocketStationEntity extends BaseContainerBlockEntity implements Wor
     }
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
-        return this.getItem(15).getItem() == item || this.getItem(15).isEmpty();
+        return this.getItem(14).getItem() == item || this.getItem(14).isEmpty();
     }
 
     private boolean canInsertAmountIntoOutputSlot(ItemStack result) {
-        return this.getItem(15).getCount() + result.getCount() <= getItem(15).getMaxStackSize();
+        return this.getItem(14).getCount() + result.getCount() <= getItem(14).getMaxStackSize();
     }
 
     private boolean isOutputSlotEmptyOrReceivable() {
-        return this.getItem(15).isEmpty() || this.getItem(15).getCount() < this.getItem(15).getMaxStackSize();
+        return this.getItem(14).isEmpty() || this.getItem(14).getCount() < this.getItem(14).getMaxStackSize();
     }
 }
