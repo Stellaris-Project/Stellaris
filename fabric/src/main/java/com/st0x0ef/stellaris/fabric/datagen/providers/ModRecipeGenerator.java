@@ -67,6 +67,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .pattern("XX ")
                 .unlockedBy(getHasName(Items.REDSTONE), has(ItemsRegistry.STEEL_INGOT.get())).save(exporter, new ResourceLocation(getItemName(ItemsRegistry.FUEL_ROCKET_MOTOR.get())));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemsRegistry.FUEL_ROCKET_MOTOR.get())
+                .define('X', ItemsRegistry.STEEL_INGOT.get()).define('#', Items.IRON_INGOT).define('Y', ItemsRegistry.ROCKET_FAN.get()).define('R', ItemsRegistry.STEEL_NUGGET.get())
+                .pattern("XX ")
+                .pattern("Y#R")
+                .pattern("XX ")
+                .unlockedBy(getHasName(Items.REDSTONE), has(ItemsRegistry.STEEL_INGOT.get())).save(exporter, new ResourceLocation(getItemName(ItemsRegistry.FUEL_ROCKET_MOTOR.get())));
+
     }
 
     public static void customNineBlockStorageRecipes(RecipeOutput recipeOutput, RecipeCategory recipeCategory, ItemLike itemLike, RecipeCategory recipeCategory2, ItemLike itemLike2) {

@@ -1,4 +1,4 @@
-package com.st0x0ef.stellaris.common.planets;
+package com.st0x0ef.stellaris.common.data.planets;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

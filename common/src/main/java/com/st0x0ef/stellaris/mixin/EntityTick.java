@@ -1,6 +1,6 @@
 package com.st0x0ef.stellaris.mixin;
 
-import com.st0x0ef.stellaris.common.planets.StellarisData;
+import com.st0x0ef.stellaris.common.data.planets.StellarisData;
 import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

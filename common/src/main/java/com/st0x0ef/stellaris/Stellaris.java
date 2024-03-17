@@ -2,7 +2,7 @@ package com.st0x0ef.stellaris;
 
 import com.google.gson.Gson;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
-import com.st0x0ef.stellaris.common.planets.StellarisData;
+import com.st0x0ef.stellaris.common.data.planets.StellarisData;
 import com.st0x0ef.stellaris.common.registry.*;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
 import dev.architectury.registry.ReloadListenerRegistry;
@@ -23,7 +23,7 @@ public class Stellaris {
         ItemsRegistry.ITEMS.register();
         MenuTypesRegistry.MENU_TYPE.register();
         BlockEntityTypesRegistry.BLOCK_ENTITY_TYPE.register();
-
+        RecipesRegistry.register();
 
         ReloadListenerRegistry.register(PackType.SERVER_DATA, new StellarisData());
         ClientLifecycleEvent.CLIENT_SETUP.register(client -> {

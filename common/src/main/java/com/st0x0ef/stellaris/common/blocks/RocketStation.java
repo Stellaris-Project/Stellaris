@@ -5,6 +5,7 @@ import com.st0x0ef.stellaris.Stellaris;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
 import com.st0x0ef.stellaris.common.blocks.entities.RocketStationEntity;
 import com.st0x0ef.stellaris.common.menus.RocketStationMenu;
+import com.st0x0ef.stellaris.common.registry.BlockEntityTypesRegistry;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -21,9 +22,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.CrafterBlockEntity;
-import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
+import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -31,7 +30,6 @@ import org.jetbrains.annotations.Nullable;
 public class RocketStation extends BaseEntityBlock {
 
     public static final MapCodec<RocketStation> CODEC = simpleCodec(RocketStation::new);
-    private static final Component CONTAINER_TITLE = Component.translatable("container.crafting");
 
     public RocketStation(Properties properties) {
         super(properties);
@@ -62,4 +60,10 @@ public class RocketStation extends BaseEntityBlock {
         return new RocketStationEntity(blockPos, blockState);
     }
 
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
+        return createTickerHelper(blockEntityType, BlockEntityTypesRegistry.ROCKET_STATION.get(),
+                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
 }
