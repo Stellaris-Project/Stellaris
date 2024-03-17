@@ -26,9 +26,9 @@ public class Stellaris {
         MenuTypesRegistry.MENU_TYPE.register();
         EntityRegistry.BLOCK_ENTITY_TYPE.register();
         EntityRegistry.ENTITY_TYPE.register();
-        RecipesRegistry.register();
+        EntityRegistry.registerAttributes();
 
-        EntityAttributeRegistry.register(EntityRegistry.MARTIAN_RAPTOR,  MartianRaptor.CreateMobAttributes());
+        RecipesRegistry.register();
 
         ReloadListenerRegistry.register(PackType.SERVER_DATA, new StellarisData());
         ClientLifecycleEvent.CLIENT_SETUP.register(client -> {

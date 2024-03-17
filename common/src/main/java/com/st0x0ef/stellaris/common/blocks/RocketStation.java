@@ -35,8 +35,6 @@ public class RocketStation extends BaseEntityBlock {
         if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
             if (blockEntity instanceof RocketStationEntity) {
-                Stellaris.LOG.error("Opening RocketStationMenu");
-                //player.openMenu((MenuProvider)blockEntity);
                 player.openMenu(blockState.getMenuProvider(level, blockPos));
 
             }
