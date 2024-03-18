@@ -19,8 +19,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-
-import java.util.function.Supplier;
+import org.jetbrains.annotations.NotNull;
 
 public class MartianRaptor extends Monster {
 
@@ -39,7 +38,7 @@ public class MartianRaptor extends Monster {
     }
 
     @Override
-    public MobType getMobType() {
+    public @NotNull MobType getMobType() {
         return MobType.UNDEAD;
     }
 

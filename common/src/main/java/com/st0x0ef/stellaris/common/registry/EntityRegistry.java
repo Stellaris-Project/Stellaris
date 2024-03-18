@@ -27,6 +27,7 @@ public class EntityRegistry {
         () -> EntityType.Builder.of(MartianRaptor::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "martian_raptor").toString()));
 
 
+    //Entity Attributes
     public static void registerAttributes() {
         EntityAttributeRegistry.register(EntityRegistry.MARTIAN_RAPTOR,  MartianRaptor::CreateRaptorAttributes);
 
