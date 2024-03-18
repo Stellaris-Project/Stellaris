@@ -4,6 +4,11 @@
   "block.stellaris.steel_block": "Steel Block",
   "block.stellaris.steel_planting_block": "Steel Planting Block",
   "block.stellaris.steel_ore": "Steel Ore",
+  "block.stellaris.chiseled_moon_stone": "Chiseled Moon Stone",
+  "block.stellaris.moon_cobblestone": "Moon Cobblestone",
+  "block.stellaris.moon_sand": "Moon Sand",
+  "block.stellaris.moon_stone": "Moon Stone",
+
   "categorie.stellaris.main": "Stellaris",
   "item.stellaris.raw_steel_ingot": "Raw Steel Ingot",
   "item.stellaris.steel_ingot": "Steel Ingot",
