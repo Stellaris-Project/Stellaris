@@ -15,9 +15,8 @@ public class PygroRenderer extends HumanoidMobRenderer<Mob, PygroModel<Mob>> {
 
     public static final ResourceLocation TEXTURE = new ResourceLocation(Stellaris.MODID, "textures/entity/pygro.png");
 
-    public PygroRenderer(EntityRendererProvider.Context context, ModelLayerLocation p_174345_, ModelLayerLocation p_174346_, ModelLayerLocation p_174347_) {
-        super(context, createModel(context.getModelSet(), p_174345_), 0.5F, 1.0019531F, 1.0F, 1.0019531F);
-        this.addLayer(new HumanoidArmorLayer<>(this, new HumanoidModel<>(context.bakeLayer(p_174346_)), new HumanoidModel<>(context.bakeLayer(p_174347_)), context.getModelManager()));
+    public PygroRenderer(EntityRendererProvider.Context context) {
+        super(context, new PygroModel<>(context.bakeLayer(PygroModel.LAYER_LOCATION)), 0.5f);
     }
 
 

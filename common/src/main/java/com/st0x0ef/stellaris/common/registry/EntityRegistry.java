@@ -6,6 +6,7 @@ import com.st0x0ef.stellaris.common.entities.MartianRaptor;
 import com.st0x0ef.stellaris.common.entities.Mogler;
 import com.st0x0ef.stellaris.common.entities.PygroBrute;
 import com.st0x0ef.stellaris.common.entities.StarCrawler;
+import com.st0x0ef.stellaris.common.entities.pygro.Pygro;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -13,6 +14,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 //For everything related to entities
@@ -27,8 +29,8 @@ public class EntityRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPE = DeferredRegister.create(Stellaris.MODID, Registries.ENTITY_TYPE);
     public static final RegistrySupplier<EntityType<MartianRaptor>> MARTIAN_RAPTOR = ENTITY_TYPE.register("martian_raptor",
         () -> EntityType.Builder.of(MartianRaptor::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "martian_raptor").toString()));
-    //reserved for Pygro
-
+    public static final RegistrySupplier<EntityType<Pygro>> PYGRO = ENTITY_TYPE.register("pygro",
+            () -> EntityType.Builder.of(Pygro::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "pygro").toString()));
     public static final RegistrySupplier<EntityType<PygroBrute>> PYGRO_BRUTE = ENTITY_TYPE.register("pygro_brute",
             () -> EntityType.Builder.of(PygroBrute::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "pygro_brute").toString()));
     public static final RegistrySupplier<EntityType<Mogler>> MOGLER = ENTITY_TYPE.register("mogler",
@@ -40,7 +42,13 @@ public class EntityRegistry {
     public static void registerAttributes() {
         EntityAttributeRegistry.register(EntityRegistry.MARTIAN_RAPTOR,  MartianRaptor::CreateRaptorAttributes);
         EntityAttributeRegistry.register(EntityRegistry.PYGRO_BRUTE, PygroBrute::setCustomAttributes);
+        EntityAttributeRegistry.register(EntityRegistry.PYGRO, Pygro::setCustomAttributes);
         EntityAttributeRegistry.register(EntityRegistry.MOGLER, Mogler::setCustomAttributes);
         EntityAttributeRegistry.register(EntityRegistry.STAR_CRAWLER, StarCrawler::setCustomAttributes);
     }
+
+    //Entity Sensor
+    public static final DeferredRegister<SensorType<?>> SENSOR = DeferredRegister.create(Stellaris.MODID, Registries.SENSOR_TYPE);
+
+
 }

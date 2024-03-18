@@ -7,6 +7,7 @@ import com.st0x0ef.stellaris.client.renderers.entities.mogler.MoglerModel;
 import com.st0x0ef.stellaris.client.renderers.entities.mogler.MoglerRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.pygro.PygroBruteRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.pygro.PygroModel;
+import com.st0x0ef.stellaris.client.renderers.entities.pygro.PygroRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.starcrawler.StarCrawlerModel;
 import com.st0x0ef.stellaris.client.renderers.entities.starcrawler.StarCrawlerRenderer;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
@@ -46,7 +47,8 @@ public class Stellaris {
             //Martian Raptor
             EntityRendererRegistry.register(EntityRegistry.MARTIAN_RAPTOR, MartianRaptorRenderer::new);
             EntityModelLayerRegistry.register(MartianRaptorModel.LAYER_LOCATION, MartianRaptorModel::createBodyLayer);
-            //reserved for Pygro
+            //Pygro
+            EntityRendererRegistry.register(EntityRegistry.PYGRO, PygroRenderer::new);
             EntityModelLayerRegistry.register(PygroModel.LAYER_LOCATION, PygroModel::createBodyLayer);
             //Pygro Brute
             EntityRendererRegistry.register(EntityRegistry.PYGRO_BRUTE, PygroBruteRenderer::new);

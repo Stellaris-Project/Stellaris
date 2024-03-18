@@ -61,7 +61,7 @@ public class StarCrawler extends Monster {
 			return false;
 		return super.hurt(source, amount);
 	}
-private boolean STAR_CRAWLER_SPAWN = true;
+	private boolean STAR_CRAWLER_SPAWN = true;
 	@Override
 	public void baseTick() {
 		super.baseTick();
