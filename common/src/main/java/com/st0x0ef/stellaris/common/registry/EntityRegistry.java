@@ -5,6 +5,7 @@ import com.st0x0ef.stellaris.common.blocks.entities.RocketStationEntity;
 import com.st0x0ef.stellaris.common.entities.MartianRaptor;
 import com.st0x0ef.stellaris.common.entities.Mogler;
 import com.st0x0ef.stellaris.common.entities.PygroBrute;
+import com.st0x0ef.stellaris.common.entities.StarCrawler;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -32,11 +33,14 @@ public class EntityRegistry {
             () -> EntityType.Builder.of(PygroBrute::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "pygro_brute").toString()));
     public static final RegistrySupplier<EntityType<Mogler>> MOGLER = ENTITY_TYPE.register("mogler",
             () -> EntityType.Builder.of(Mogler::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "mogler").toString()));
+    public static final RegistrySupplier<EntityType<StarCrawler>> STAR_CRAWLER = ENTITY_TYPE.register("star_crawler",
+            () -> EntityType.Builder.of(StarCrawler::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "star_crawler").toString()));
 
     //Entity Attributes
     public static void registerAttributes() {
         EntityAttributeRegistry.register(EntityRegistry.MARTIAN_RAPTOR,  MartianRaptor::CreateRaptorAttributes);
         EntityAttributeRegistry.register(EntityRegistry.PYGRO_BRUTE, PygroBrute::setCustomAttributes);
         EntityAttributeRegistry.register(EntityRegistry.MOGLER, Mogler::setCustomAttributes);
+        EntityAttributeRegistry.register(EntityRegistry.STAR_CRAWLER, StarCrawler::setCustomAttributes);
     }
 }

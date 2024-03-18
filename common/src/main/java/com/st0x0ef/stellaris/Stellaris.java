@@ -7,6 +7,8 @@ import com.st0x0ef.stellaris.client.renderers.entities.mogler.MoglerModel;
 import com.st0x0ef.stellaris.client.renderers.entities.mogler.MoglerRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.pygro.PygroBruteRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.pygro.PygroModel;
+import com.st0x0ef.stellaris.client.renderers.entities.starcrawler.StarCrawlerModel;
+import com.st0x0ef.stellaris.client.renderers.entities.starcrawler.StarCrawlerRenderer;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
 import com.st0x0ef.stellaris.common.data.planets.StellarisData;
 import com.st0x0ef.stellaris.common.registry.*;
@@ -51,6 +53,9 @@ public class Stellaris {
             //Mogler
             EntityRendererRegistry.register(EntityRegistry.MOGLER, MoglerRenderer::new);
             EntityModelLayerRegistry.register(MoglerModel.LAYER_LOCATION, MoglerModel::createBodyLayer);
+            //Star Crawler
+            EntityRendererRegistry.register(EntityRegistry.STAR_CRAWLER, StarCrawlerRenderer::new);
+            EntityModelLayerRegistry.register(StarCrawlerModel.LAYER_LOCATION, StarCrawlerModel::createBodyLayer);
         });
     }
 
