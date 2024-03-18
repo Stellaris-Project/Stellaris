@@ -3,17 +3,17 @@ package com.st0x0ef.stellaris;
 import com.google.gson.Gson;
 import com.st0x0ef.stellaris.client.renderers.entities.martianraptor.MartianRaptorModel;
 import com.st0x0ef.stellaris.client.renderers.entities.martianraptor.MartianRaptorRenderer;
+import com.st0x0ef.stellaris.client.renderers.entities.mogler.MoglerModel;
+import com.st0x0ef.stellaris.client.renderers.entities.mogler.MoglerRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.pygro.PygroBruteRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.pygro.PygroModel;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
 import com.st0x0ef.stellaris.common.data.planets.StellarisData;
-import com.st0x0ef.stellaris.common.entities.MartianRaptor;
 import com.st0x0ef.stellaris.common.registry.*;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
 import dev.architectury.registry.ReloadListenerRegistry;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
-import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.minecraft.server.packs.PackType;
 import org.slf4j.Logger;
@@ -48,7 +48,9 @@ public class Stellaris {
             EntityModelLayerRegistry.register(PygroModel.LAYER_LOCATION, PygroModel::createBodyLayer);
             //Pygro Brute
             EntityRendererRegistry.register(EntityRegistry.PYGRO_BRUTE, PygroBruteRenderer::new);
-
+            //Mogler
+            EntityRendererRegistry.register(EntityRegistry.MOGLER, MoglerRenderer::new);
+            EntityModelLayerRegistry.register(MoglerModel.LAYER_LOCATION, MoglerModel::createBodyLayer);
         });
     }
 
