@@ -7,6 +7,7 @@ import com.st0x0ef.stellaris.common.entities.Mogler;
 import com.st0x0ef.stellaris.common.entities.PygroBrute;
 import com.st0x0ef.stellaris.common.entities.StarCrawler;
 import com.st0x0ef.stellaris.common.entities.pygro.Pygro;
+import com.st0x0ef.stellaris.common.entities.pygro.PygroMobsSensor;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -47,8 +48,11 @@ public class EntityRegistry {
         EntityAttributeRegistry.register(EntityRegistry.STAR_CRAWLER, StarCrawler::setCustomAttributes);
     }
 
+
+
     //Entity Sensor
     public static final DeferredRegister<SensorType<?>> SENSOR = DeferredRegister.create(Stellaris.MODID, Registries.SENSOR_TYPE);
+    public static final RegistrySupplier<SensorType<PygroMobsSensor>> PYGRO_SENSOR = SENSOR.register("pygro_sensor", ()-> new SensorType<>(PygroMobsSensor::new));
 
 
 }

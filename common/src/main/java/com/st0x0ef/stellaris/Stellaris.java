@@ -36,6 +36,7 @@ public class Stellaris {
         EntityRegistry.BLOCK_ENTITY_TYPE.register();
         EntityRegistry.ENTITY_TYPE.register();
         EntityRegistry.registerAttributes();
+        EntityRegistry.SENSOR.register();
 
         RecipesRegistry.register();
 
