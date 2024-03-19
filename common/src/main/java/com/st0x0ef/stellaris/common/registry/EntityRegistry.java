@@ -2,10 +2,8 @@ package com.st0x0ef.stellaris.common.registry;
 
 import com.st0x0ef.stellaris.Stellaris;
 import com.st0x0ef.stellaris.common.blocks.entities.RocketStationEntity;
-import com.st0x0ef.stellaris.common.entities.MartianRaptor;
-import com.st0x0ef.stellaris.common.entities.Mogler;
-import com.st0x0ef.stellaris.common.entities.PygroBrute;
-import com.st0x0ef.stellaris.common.entities.StarCrawler;
+import com.st0x0ef.stellaris.common.entities.*;
+import com.st0x0ef.stellaris.common.entities.alien.AlienEntity;
 import com.st0x0ef.stellaris.common.entities.pygro.Pygro;
 import com.st0x0ef.stellaris.common.entities.pygro.PygroMobsSensor;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
@@ -28,6 +26,10 @@ public class EntityRegistry {
     //Entity type
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPE = DeferredRegister.create(Stellaris.MODID, Registries.ENTITY_TYPE);
+    public static final RegistrySupplier<EntityType<AlienEntity>> ALIEN = ENTITY_TYPE.register("alien",
+            () -> EntityType.Builder.of(AlienEntity::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "alien").toString()));
+    public static final RegistrySupplier<EntityType<AlienZombie>> ALIEN_ZOMBIE = ENTITY_TYPE.register("alien_zombie",
+            () -> EntityType.Builder.of(AlienZombie::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "alien_zombie").toString()));
     public static final RegistrySupplier<EntityType<MartianRaptor>> MARTIAN_RAPTOR = ENTITY_TYPE.register("martian_raptor",
         () -> EntityType.Builder.of(MartianRaptor::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "martian_raptor").toString()));
     public static final RegistrySupplier<EntityType<Pygro>> PYGRO = ENTITY_TYPE.register("pygro",
