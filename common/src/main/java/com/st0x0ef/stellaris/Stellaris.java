@@ -11,6 +11,7 @@ import com.st0x0ef.stellaris.client.renderers.entities.pygro.PygroRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.starcrawler.StarCrawlerModel;
 import com.st0x0ef.stellaris.client.renderers.entities.starcrawler.StarCrawlerRenderer;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
+import com.st0x0ef.stellaris.common.config.CustomConfig;
 import com.st0x0ef.stellaris.common.data.planets.StellarisData;
 import com.st0x0ef.stellaris.common.registry.*;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
@@ -28,6 +29,8 @@ public class Stellaris {
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
     public static final Gson GSON = new Gson();
     public static void init() {
+
+        CustomConfig.init();
 
         CreativeTabsRegistry.TABS.register();
         BlocksRegistry.BLOCKS.register();
@@ -64,5 +67,8 @@ public class Stellaris {
     }
 
     public static void clientInit() {
+
+
+
     }
 }
