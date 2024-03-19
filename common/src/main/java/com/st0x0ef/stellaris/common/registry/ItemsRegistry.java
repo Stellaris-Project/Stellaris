@@ -23,6 +23,9 @@ public class ItemsRegistry {
     public static final RegistrySupplier<Item> STEEL_ORE_ITEM = ITEMS.register("steel_ore", () -> new BlockItem(BlocksRegistry.STEEL_ORE.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
     public static final RegistrySupplier<Item> DEEPSLATE_STEEL_ORE_ITEM = ITEMS.register("deepslate_steel_ore", () -> new BlockItem(BlocksRegistry.DEEPSLATE_STEEL_ORE.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
 
+    public static final RegistrySupplier<Item> STEEL_PLATE_BLOCK_ITEM = ITEMS.register("steel_plate_block", () -> new BlockItem(BlocksRegistry.STEEL_PLATE_BLOCK.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
+    public static final RegistrySupplier<Item> STEEL_CASING_ITEM = ITEMS.register("steel_casing", () -> new BlockItem(BlocksRegistry.STEEL_CASING_ITEM.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
+
     /** Moon Items 1*/
     public static final RegistrySupplier<Item> CHISELED_MOON_STONE_ITEM = ITEMS.register("chiseled_moon_stone", () -> new BlockItem(BlocksRegistry.CHISELED_MOON_STONE.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
     public static final RegistrySupplier<Item> MOON_COBBLESTONE_ITEM = ITEMS.register("moon_cobblestone", () -> new BlockItem(BlocksRegistry.MOON_COBBLESTONE.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
