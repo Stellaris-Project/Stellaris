@@ -37,6 +37,7 @@ public class Stellaris {
         EntityRegistry.ENTITY_TYPE.register();
         EntityRegistry.registerAttributes();
         EntityRegistry.SENSOR.register();
+        FeaturesRegistry.FEATURES.register();
 
         RecipesRegistry.register();
 
@@ -63,8 +64,5 @@ public class Stellaris {
     }
 
     public static void clientInit() {
-
-
-
     }
 }
