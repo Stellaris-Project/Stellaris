@@ -1,9 +1,9 @@
 package com.st0x0ef.stellaris.common.entities;
 
-import com.st0x0ef.stellaris.common.entities.alien.AlienEntity;
+import com.st0x0ef.stellaris.common.entities.alien.Alien;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -17,6 +17,7 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
@@ -43,7 +44,7 @@ public class AlienZombie extends Monster implements RangedAttackMob {
 		this.goalSelector.addGoal(3, new RandomStrollGoal(this, 0.8));
 		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Player.class, false, false));
-		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, AlienEntity.class, false, false));
+		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Alien.class, false, false));
 		this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 15));
 	}
 
@@ -54,17 +55,17 @@ public class AlienZombie extends Monster implements RangedAttackMob {
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource p_33034_) {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.pillager.hurt"));
+		return SoundEvents.PILLAGER_HURT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.pillager.death"));
+		return SoundEvents.PILLAGER_DEATH;
 	}
 
 	@Override
 	public void performRangedAttack(LivingEntity p_33317_, float p_33318_) {
-		IceSpitEntity.shoot(this, p_33317_, 2);
+		IceSpit.shoot(this, p_33317_, 2);
 	}
 
 	@Override
@@ -78,10 +79,11 @@ public class AlienZombie extends Monster implements RangedAttackMob {
 		return super.checkSpawnRules(p_21686_, p_21687_);
 	}
 
+	private boolean ALIEN_ZOMBIE_SPAWN=true;
 	@Override
 	public void tick() {
 		super.tick();
-		if (!Config.ALIEN_ZOMBIE_SPAWN.get()) {
+		if (!ALIEN_ZOMBIE_SPAWN) {
 			if (!this.level().isClientSide) {
 				this.remove(RemovalReason.DISCARDED);
 			}

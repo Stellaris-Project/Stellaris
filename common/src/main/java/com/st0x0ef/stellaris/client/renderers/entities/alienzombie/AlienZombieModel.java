@@ -2,8 +2,8 @@ package com.st0x0ef.stellaris.client.renderers.entities.alienzombie;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.st0x0ef.beyond_earth.BeyondEarth;
-import com.st0x0ef.beyond_earth.common.entities.AlienZombieEntity;
+import com.st0x0ef.stellaris.common.entities.AlienZombie;
+import com.st0x0ef.stellaris.Stellaris;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -11,13 +11,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-@OnlyIn(Dist.CLIENT)
-public class AlienZombieModel<T extends AlienZombieEntity> extends EntityModel<T> {
+public class AlienZombieModel<T extends AlienZombie> extends EntityModel<T> {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BeyondEarth.MODID, "alien_zombie"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Stellaris.MODID, "alien_zombie"), "main");
 
     private final ModelPart head;
     private final ModelPart body;

@@ -1,6 +1,10 @@
 package com.st0x0ef.stellaris;
 
 import com.google.gson.Gson;
+import com.st0x0ef.stellaris.client.renderers.entities.alien.AlienModel;
+import com.st0x0ef.stellaris.client.renderers.entities.alien.AlienRenderer;
+import com.st0x0ef.stellaris.client.renderers.entities.alienzombie.AlienZombieModel;
+import com.st0x0ef.stellaris.client.renderers.entities.alienzombie.AlienZombieRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.martianraptor.MartianRaptorModel;
 import com.st0x0ef.stellaris.client.renderers.entities.martianraptor.MartianRaptorRenderer;
 import com.st0x0ef.stellaris.client.renderers.entities.mogler.MoglerModel;
@@ -47,10 +51,11 @@ public class Stellaris {
             MenuRegistry.registerScreenFactory(MenuTypesRegistry.ROCKET_STATION.get(), RocketStationScreen::new);
 
             //Alien
-            EntityRendererRegistry.register(EntityRegistry.MARTIAN_RAPTOR, MartianRaptorRenderer::new);
-            EntityModelLayerRegistry.register(MartianRaptorModel.LAYER_LOCATION, MartianRaptorModel::createBodyLayer);
+            EntityRendererRegistry.register(EntityRegistry.ALIEN, AlienRenderer::new);
+            EntityModelLayerRegistry.register(AlienModel.LAYER_LOCATION, AlienModel::createBodyLayer);
             //Alien Zombie
-
+            EntityRendererRegistry.register(EntityRegistry.ALIEN_ZOMBIE, AlienZombieRenderer::new);
+            EntityModelLayerRegistry.register(AlienZombieModel.LAYER_LOCATION, AlienZombieModel::createBodyLayer);
             //Martian Raptor
             EntityRendererRegistry.register(EntityRegistry.MARTIAN_RAPTOR, MartianRaptorRenderer::new);
             EntityModelLayerRegistry.register(MartianRaptorModel.LAYER_LOCATION, MartianRaptorModel::createBodyLayer);

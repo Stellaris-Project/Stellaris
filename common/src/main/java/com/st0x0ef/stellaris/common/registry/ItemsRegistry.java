@@ -1,11 +1,9 @@
 package com.st0x0ef.stellaris.common.registry;
 
 import com.st0x0ef.stellaris.Stellaris;
-import com.st0x0ef.stellaris.common.entities.alien.AlienEntity;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -14,6 +12,7 @@ public class ItemsRegistry {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Stellaris.MODID, Registries.ITEM);
 
+    public static final RegistrySupplier<Item> ICE_SHARD = ITEMS.register("ice_shard", () -> new Item(new Item.Properties()));
     public static final RegistrySupplier<Item> STEEL_INGOT = ITEMS.register("steel_ingot", () -> new Item(new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
     public static final RegistrySupplier<Item> STEEL_NUGGET = ITEMS.register("steel_nugget", () -> new Item(new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
     public static final RegistrySupplier<Item> RAW_STEEL_INGOT = ITEMS.register("raw_steel_ingot", () -> new Item(new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
@@ -53,7 +52,7 @@ public class ItemsRegistry {
     public static final RegistrySupplier<Item> ROCKET_STATION = ITEMS.register("rocket_station", () -> new BlockItem(BlocksRegistry.ROCKET_STATION.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
 
 
-    /** Mob Egss */
+    /** Mob Eggs */
 
     public static final RegistrySupplier<Item> ALIEN_SPAWN_EGG = ITEMS.register("alien_spawn_egg",
             ()-> new SpawnEggItem(EntityRegistry.ALIEN.get(), 0xc4c4c4, 0xadadad, new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));

@@ -8,7 +8,6 @@ import com.mojang.serialization.Dynamic;
 import com.st0x0ef.stellaris.common.entities.AlienZombie;
 import com.st0x0ef.stellaris.common.registry.EntityRegistry;
 import com.st0x0ef.stellaris.common.registry.ItemsRegistry;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
@@ -45,7 +44,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import java.util.Random;
 import java.util.Set;
 
-public class AlienEntity extends Villager implements Merchant, Npc {
+public class Alien extends Villager implements Merchant, Npc {
 	public static ImmutableList<Pair<Integer, ? extends BehaviorControl<? super Villager>>> core(VillagerProfession profession, float p_220638_1_) {
 		return VillagerGoalPackages.getCorePackage(profession, p_220638_1_);
 	}
@@ -60,13 +59,13 @@ public class AlienEntity extends Villager implements Merchant, Npc {
 				.add(Attributes.FOLLOW_RANGE, 48.0D);
 	}
 
-	public AlienEntity(EntityType<? extends Villager> type, Level worldIn) {
+	public Alien(EntityType<? extends Villager> type, Level worldIn) {
 		super(type, worldIn);
 	}
 
 	@Override
 	public Villager getBreedOffspring(ServerLevel p_241840_1_, AgeableMob p_241840_2_) {
-		AlienEntity alienentity = new AlienEntity(EntityRegistry.ALIEN.get(), this.level());
+		Alien alienentity = new Alien(EntityRegistry.ALIEN.get(), this.level());
 
 		alienentity.finalizeSpawn(p_241840_1_, p_241840_1_.getCurrentDifficultyAt(new BlockPos((int)p_241840_2_.getX(), (int)p_241840_2_.getY(), (int)p_241840_2_.getZ())), MobSpawnType.BREEDING, null, null);
 		return alienentity;
@@ -177,7 +176,7 @@ public class AlienEntity extends Villager implements Merchant, Npc {
 			p_35425_.addActivityWithConditions(Activity.WORK, VillagerGoalPackages.getWorkPackage(villagerprofession, 0.5F), ImmutableSet.of(Pair.of(MemoryModuleType.JOB_SITE, MemoryStatus.VALUE_PRESENT)));
 		}
 
-		p_35425_.addActivity(Activity.CORE, AlienEntity.core(villagerprofession, 0.5F));
+		p_35425_.addActivity(Activity.CORE, Alien.core(villagerprofession, 0.5F));
 		p_35425_.addActivity(Activity.REST, VillagerGoalPackages.getRestPackage(villagerprofession, 0.5F));
 		p_35425_.addActivity(Activity.IDLE, VillagerGoalPackages.getIdlePackage(villagerprofession, 0.5F));
 		p_35425_.addActivity(Activity.PANIC, VillagerGoalPackages.getPanicPackage(villagerprofession, 0.5F));
@@ -245,11 +244,12 @@ public class AlienEntity extends Villager implements Merchant, Npc {
 
 	}
 
+	private boolean ALIEN_SPAWN=true;
 	@Override
 	public void baseTick() {
 		super.baseTick();
 
-		if (!Config.ALIEN_SPAWN.get()) {
+		if (!ALIEN_SPAWN) {
 			this.remove(RemovalReason.DISCARDED);
 		}
 	}
