@@ -1,0 +1,4 @@
+accessWidener v2 named
+
+accessible class net/minecraft/world/entity/ai/sensing/SensorType
+transitive-accessible method net/minecraft/world/entity/ai/sensing/SensorType <init> (Ljava/util/function/Supplier;)V
