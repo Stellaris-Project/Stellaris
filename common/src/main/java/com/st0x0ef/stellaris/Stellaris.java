@@ -16,12 +16,15 @@ import com.st0x0ef.stellaris.client.renderers.entities.starcrawler.StarCrawlerMo
 import com.st0x0ef.stellaris.client.renderers.entities.starcrawler.StarCrawlerRenderer;
 import com.st0x0ef.stellaris.client.screens.RocketStationScreen;
 import com.st0x0ef.stellaris.common.data.planets.StellarisData;
+import com.st0x0ef.stellaris.common.entities.IceSpit;
 import com.st0x0ef.stellaris.common.registry.*;
 import dev.architectury.event.events.client.ClientLifecycleEvent;
 import dev.architectury.registry.ReloadListenerRegistry;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.menu.MenuRegistry;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.server.packs.PackType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,6 +73,9 @@ public class Stellaris {
             //Star Crawler
             EntityRendererRegistry.register(EntityRegistry.STAR_CRAWLER, StarCrawlerRenderer::new);
             EntityModelLayerRegistry.register(StarCrawlerModel.LAYER_LOCATION, StarCrawlerModel::createBodyLayer);
+            //Ice Spit
+            EntityRendererRegistry.register(EntityRegistry.ICE_SPIT, (context) ->
+                    new ThrownItemRenderer<>(context));
         });
     }
 

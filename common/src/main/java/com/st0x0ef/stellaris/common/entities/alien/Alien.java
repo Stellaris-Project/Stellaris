@@ -72,34 +72,25 @@ public class Alien extends Villager implements Merchant, Npc {
 	}
 
 	@Override
-	public void thunderHit(ServerLevel p_35409_, LightningBolt p_35410_) {
-		this.setRemainingFireTicks(this.getRemainingFireTicks() + 1);
-		if (this.getRemainingFireTicks() == 0) {
-			this.setSecondsOnFire(8);
-		}
-		super.thunderHit(p_35409_, p_35410_);
-	}
-
-	@Override
-	public InteractionResult mobInteract(Player p_230254_1_, InteractionHand p_230254_2_) {
-		ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
-		if (itemstack.getItem() != ItemsRegistry.ALIEN_SPAWN_EGG.get() && this.isAlive() && !this.isTrading() && !this.isSleeping() && !p_230254_1_.isSecondaryUseActive()) {
+	public InteractionResult mobInteract(Player player, InteractionHand hand) {
+		ItemStack itemstack = player.getItemInHand(hand);
+		if (itemstack.getItem() != ItemsRegistry.ALIEN_SPAWN_EGG.get() && this.isAlive() && !this.isTrading() && !this.isSleeping() && !player.isSecondaryUseActive()) {
 			if (this.isBaby()) {
 				this.shakeHead();
 				return InteractionResult.sidedSuccess(this.level().isClientSide);
 			} else {
 				boolean flag = this.getOffers().isEmpty();
-				if (p_230254_2_ == InteractionHand.MAIN_HAND) {
+				if (hand == InteractionHand.MAIN_HAND) {
 					if (flag && !this.level().isClientSide) {
 						this.shakeHead();
 					}
 
-					p_230254_1_.awardStat(Stats.TALKED_TO_VILLAGER);
+					player.awardStat(Stats.TALKED_TO_VILLAGER);
 				}
 
                 if (!flag) {
                     if (!this.level().isClientSide && !this.offers.isEmpty()) {
-                        this.displayMerchantGui(p_230254_1_);
+                        this.displayMerchantGui(player);
                     }
 
                 }

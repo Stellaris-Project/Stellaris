@@ -14,6 +14,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ai.sensing.SensorType;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 //For everything related to entities
@@ -40,8 +42,8 @@ public class EntityRegistry {
             () -> EntityType.Builder.of(Mogler::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "mogler").toString()));
     public static final RegistrySupplier<EntityType<StarCrawler>> STAR_CRAWLER = ENTITY_TYPE.register("star_crawler",
             () -> EntityType.Builder.of(StarCrawler::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "star_crawler").toString()));
-    public static final RegistrySupplier<EntityType<IceSpit>> ICE_SPIT = ENTITY_TYPE.register("ice_spit",
-            () -> EntityType.Builder.of(IceSpit::new, MobCategory.MONSTER).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "star_crawler").toString()));
+    public static final RegistrySupplier<EntityType<? extends IceSpit>> ICE_SPIT = ENTITY_TYPE.register("ice_spit",
+            () -> EntityType.Builder.of(IceSpit::new, MobCategory.MISC).sized(0.75f, 2.0f).build(new ResourceLocation(Stellaris.MODID, "ice_spit").toString()));
 
     //Entity Attributes
     public static void registerAttributes() {
