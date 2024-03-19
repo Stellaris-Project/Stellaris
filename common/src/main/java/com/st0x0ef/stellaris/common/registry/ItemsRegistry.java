@@ -33,6 +33,8 @@ public class ItemsRegistry {
     public static final RegistrySupplier<Item> MOON_COBBLESTONE_ITEM = ITEMS.register("moon_cobblestone", () -> new BlockItem(BlocksRegistry.MOON_COBBLESTONE.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
     public static final RegistrySupplier<Item> MOON_SAND_ITEM = ITEMS.register("moon_sand", () -> new BlockItem(BlocksRegistry.MOON_SAND.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
     public static final RegistrySupplier<Item> MOON_STONE_ITEM = ITEMS.register("moon_stone", () -> new BlockItem(BlocksRegistry.MOON_STONE.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
+    public static final RegistrySupplier<Item> MOON_DEEPSLATE_ITEM = ITEMS.register("moon_deepslate", () -> new BlockItem(BlocksRegistry.MOON_DEEPSLATE.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
+    public static final RegistrySupplier<Item> MOON_STONE_DUST_ITEM = ITEMS.register("moon_stone_dust", () -> new BlockItem(BlocksRegistry.MOON_STONE_DUST.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
 
     /** Moon Items 2*/
     public static final RegistrySupplier<Item> CRACKED_MOON_STONE_BRICKS_ITEM = ITEMS.register("cracked_moon_stone_bricks", () -> new BlockItem(BlocksRegistry.CRACKED_MOON_STONE_BRICKS.get(), new Item.Properties().arch$tab(CreativeTabsRegistry.MY_TAB)));
